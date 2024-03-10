@@ -15,13 +15,16 @@
 ## About Us
 <p>Welcome to MyAdminPanel, a powerful admin dashboard designed to cater to the specific requirements outlined in the Figma file provided by MarbleAI. This refined repository integrates a sleek design with robust functionality to offer an enhanced user experience.
 
-- <b>**Revenue Graph:**.</b>
+<h4>**Revenue Graph**.</h4>
 - <b>Utilized daisyUI templates for visually appealing and responsive design.</b>
 - <b>Dynamic representation of daily revenue</b>
 <br/>
-- <b>**Range Pickers:** </b>
+<h4>**Range Pickers**.</h4>
 - <b>Two range pickers for selecting date ranges.</b>
 - <b>Revenue graph updates dynamically based on the chosen date range.</b>
+<br/>
+<h4>**TootTip**.</h4>
+- <b>Implement a hover on tooltip to show the details at a specific point of graph.</b>
 </p>
 
 
