@@ -30,7 +30,7 @@ export const TabView = ({ }: TTabViewProps) => {
   const [activeTab, setActiveTab] = useState("Net return value");
   const [rangeOne, setRangeOne] = useState<[Moment, Moment] | null>(null);
   const [rangeTwo, setRangeTwo] = useState<[Moment, Moment] | null>(null);
-
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setRangeOne([
@@ -47,6 +47,11 @@ export const TabView = ({ }: TTabViewProps) => {
     filters,
   });
 
+
+  useEffect(() => {
+    setIsLoading(!dailyRevenue)
+  }, [dailyRevenue]);
+
   const { data: dailyOrders } = useList<IChartDatum>({
     resource: "dailyOrders",
     filters,
@@ -56,7 +61,7 @@ export const TabView = ({ }: TTabViewProps) => {
     resource: "newCustomers",
     filters,
   });
-
+  console.log(isLoading)
   const useMemoizedChartData = (d: any) => {
     return useMemo(() => {
       return d?.data?.data?.map((item: IChartDatum) => ({
@@ -75,8 +80,9 @@ export const TabView = ({ }: TTabViewProps) => {
 
   return (
     <div className="mx-auto py-4 bg-white border rounded-lg drop-shadow-md">
-      <div className="px-5">
+      <div className="px-5 space-y-5">
         <Stats
+          isLoading={isLoading}
           activeTab={activeTab}
           dailyRevenue={dailyRevenue}
           dailyOrders={dailyOrders}

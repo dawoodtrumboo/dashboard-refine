@@ -40,7 +40,7 @@ export const ResponsiveAreaChart = ({
       if (response.ok) {
         const result = await response.json();
         setData(result);
-        console.log(result)
+
       }
 
     } catch (error) {
@@ -80,7 +80,7 @@ export const ResponsiveAreaChart = ({
 
 
   return (
-    <ResponsiveContainer height={200}>
+    <ResponsiveContainer height={200} >
       <AreaChart
         data={filteredDataRangeOne}
         height={400}
@@ -90,6 +90,7 @@ export const ResponsiveAreaChart = ({
           left: 0,
           bottom: 0,
         }}
+
       >
         <CartesianGrid stroke="#e2e2e2" strokeDasharray="0" vertical={false} />
         <XAxis
@@ -105,6 +106,7 @@ export const ResponsiveAreaChart = ({
           tickLine={false}
           // Hide X-axis line
           axisLine={{ stroke: "transparent" }}
+
         />
         <YAxis
           tickCount={3}
@@ -141,7 +143,8 @@ export const ResponsiveAreaChart = ({
           stroke="#00C1FF45"
           strokeWidth={2}
           fill="transparent"
-          data={filteredDataRangeTwo} />
+          data={filteredDataRangeTwo}
+        />
 
 
         <Area

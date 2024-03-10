@@ -13,13 +13,15 @@ type TStats = {
   dailyOrders?: GetListResponse<IChartDatum>;
   newCustomers?: GetListResponse<IChartDatum>;
   activeTab?: string;
+  isLoading: boolean;
 };
 
-const Stats = ({ dailyRevenue, dailyOrders, newCustomers, activeTab }: TStats) => {
+const Stats = ({ dailyRevenue, dailyOrders, newCustomers, activeTab, isLoading }: TStats) => {
   return (
     <div className="w-full mx-auto mb-4 flex flex-col justify-center items-stretch md:flex-row md:justify-between drop-shadow-md">
       <div className="w-full mx-auto md:flex-1 md:mr-2">
         <KpiCard
+          isLoading={isLoading}
           title="Net return value"
           data={dailyRevenue}
           formatTotal={(value: number | string) => `$ ${value}`}

@@ -8,6 +8,7 @@ type TKpiCardProps = {
     fill: string;
   };
   activeTab: string;
+  isLoading: boolean;
   formatTotal?: (value: number | string) => typeof value;
 };
 
@@ -16,6 +17,7 @@ export const KpiCard = ({
   data,
   colors,
   activeTab,
+  isLoading,
   formatTotal = (value) => value,
 }: TKpiCardProps) => {
   const total = data?.data?.total;
@@ -23,7 +25,6 @@ export const KpiCard = ({
   const calc = Math.round((trend / total) * 100);
   const percent = total > trend ? `+ ${calc}%` : `- ${calc}%`;
   const textColor = total > trend ? "seagreen" : "crimson";
-  console.log(activeTab)
   return (
     <div
       className={`stat my-2 py-4 flex-1 rounded hover:bg-[#fbfbfb] transition-colors ease-in-out ${activeTab?.includes(title) ? 'bg-[#fbfbfb]' : 'bg-transparent'}`}
@@ -39,27 +40,35 @@ export const KpiCard = ({
 
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <div style={{ fontSize: '24px', fontWeight: '600' }}>
-          {formatTotal(total ?? "...")}
-        </div>
-        <div className="stat-desc my-2 flex">
-          <span className="mx-1 text-l flex gap-1" style={{ color: 'gray' }}>
-            {percent.includes('+') ? (
-              <>
-                <svg fill="currentColor" width={8} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z" /></svg>                {percent.replace('+', '')}
-              </>
-            ) : percent.includes('-') ? (
-              <>
-                <svg width={8} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" /></svg>                {percent.replace('-', '')}
-              </>
-            ) : (
-              percent
-            )}
-          </span>
+      {
+        data
+          ?
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ fontSize: '24px', fontWeight: '600' }}>
 
-        </div>
-      </div>
+              {formatTotal(total ?? "...")}
+            </div>
+            <div className="stat-desc my-2 flex">
+              <span className="mx-1 text-l flex gap-1" style={{ color: 'gray' }}>
+                {percent.includes('+') ? (
+                  <>
+                    <svg fill="currentColor" width={8} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M182.6 137.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8H288c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z" /></svg>                {percent.replace('+', '')}
+                  </>
+                ) : percent.includes('-') ? (
+                  <>
+                    <svg width={8} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" /></svg>                {percent.replace('-', '')}
+                  </>
+                ) : (
+                  percent
+                )}
+              </span>
+
+            </div>
+          </div>
+          :
+          <div className="skeleton h-6 w-1/2 mt-2 bg-[#e6e6e6] rounded-md"></div>
+      }
+
 
 
     </div>
