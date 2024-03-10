@@ -34,7 +34,7 @@ I made several key decisions throughout the implementation process to ensure the
 
 * **Component-Based Architecture:** The dashboard is constructed using a component-based architecture. This approach promotes code reusability, simplifies maintenance, and fosters a well-organized codebase.
 
-<h4>Screenshots</h4>
+<h4>Screenshot</h4>
 
 ![](Project-Images/image.png)
 
