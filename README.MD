@@ -17,7 +17,7 @@
 ## About Us
 <p>Welcome to MyAdminPanel, a powerful admin dashboard designed to cater to the specific requirements outlined in the Figma file provided by MarbleAI. This refined repository integrates a sleek design with robust functionality to offer an enhanced user experience.</p>
 
-<h4>Our Approach</h4>
+<h4>Approach</h4>
 
 MyAdminPanel leverages the capabilities of daisyUI, a popular framework for crafting user interfaces. daisyUI offers a collection of pre-built components that streamline the development process and ensure a consistent, visually appealing design language. 
 
