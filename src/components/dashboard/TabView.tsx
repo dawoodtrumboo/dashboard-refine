@@ -103,7 +103,7 @@ export const TabView = ({ }: TTabViewProps) => {
         />
 
       </div>
-      <div className="w-full flex justify-end px-5 gap-3">
+      <div className="w-full flex justify-center md:justify-end px-5 gap-3 flex-wrap">
         <PickerSizesDemo value={rangeOne} setRange={setRangeOne} color="#00C1FF" border="solid" />
         <PickerSizesDemo value={rangeTwo} setRange={setRangeTwo} color="#00C1FF45" border="dashed" />
       </div>
