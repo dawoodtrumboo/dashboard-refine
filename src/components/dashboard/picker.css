@@ -1,0 +1,18 @@
+.picker .ant-picker-input input {
+    text-align: center;
+    width: 90px;
+    font-weight: 300;
+    font-size: 11px;
+    cursor: pointer;
+
+}
+
+.picker .ant-picker-clear {
+    right: -3px;
+    font-size: 10px;
+
+}
+
+.picker .ant-picker-input input::placeholder {
+    color: #808080;
+}
